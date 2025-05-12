@@ -1,0 +1,22 @@
+
+print("purchases between 1000 and 10000 receives a 5% discount")
+print("purchases between 10000 and 50000 receives a 10% discount")
+print("purchases between 10000 and 50000 receives a 10% discount)
+
+amount = int(input(Enter amount))
+
+if amount < 1000: 
+	print("Invalid input")
+if amount <= 10000:
+	discount_rate = amount * 0.05
+
+if amount <= 50000:
+	discount_rate = amount * 0.10
+
+if amount > 50000:
+	discount_rate = amount * 0.20
+
+	discount_price = amount - discount_rate
+print("The discount price is ", discount_price )
+	
+	

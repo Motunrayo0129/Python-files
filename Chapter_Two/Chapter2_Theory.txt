@@ -1,0 +1,13 @@
+2.1a print('x = ', x)
+	x = 2
+2.1b  print('Value of', x, '+', x, 'is', (x + x))
+output = 4
+2.1c  print('x =')
+output = x
+2.1d =  print((x + y), '=', (y + x))
+output is 5 = 5
+
+2.2 It returns string
+
+2.3 print("Congratulations!")
+print("Your grade of 91 earns you an A in this course")
