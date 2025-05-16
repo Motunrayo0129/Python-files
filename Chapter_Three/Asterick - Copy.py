@@ -9,13 +9,13 @@ for i in range(1, rows + 1):
     # Pattern B: Left-aligned decreasing
     for j in range(rows - i + 1):
         print('*', end='')
-    print(' ' * (i - 1), end='  ')  
+    print(' ' * (i - 1), end='')  
 
     # Pattern C: Right-aligned decreasing
-    print(' ' * (i - 1), end='')     
+    print(' ' * (i - 1), end='')    
     for j in range(rows - i + 1):
         print('*', end='')
-    print('  ', end='')            
+    print('', end='')            
 
     # Pattern D: Right-aligned increasing
     print(' ' * (rows - i), end='') 

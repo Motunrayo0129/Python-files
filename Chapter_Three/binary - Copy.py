@@ -4,9 +4,9 @@ decimal = 0
 values = 0
 
 while binary > 0:
-	if binary > 1:
-	print('Invalid input')
-	break
+	if binary < 1:
+		print('Invalid input')
+		break
 
 	last_digit = binary % 10
 	decimal += last_digit * (2 ** values)

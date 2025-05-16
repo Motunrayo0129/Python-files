@@ -1,4 +1,4 @@
-student_num = int(input('Enter the number of student: '))
+  student_num = int(input('Enter the number of student: '))
 top_name = ""
 top_score = None
 second_top_name =""
