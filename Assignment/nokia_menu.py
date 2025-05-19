@@ -40,10 +40,11 @@ def phone_book():
     else:
         print("Invalid choice.")
 
+    while True:
         back =  int(input("Enter (0) to go back to menu: "))
     if back == 0:
         print(phonebook_menu)	 
-  
+    continue
 def messages():
     messages_menu = """ 
     1. Write messages
