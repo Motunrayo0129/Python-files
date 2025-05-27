@@ -17,3 +17,6 @@ class TestCategorizeNumbers(TestCase):
 
 	def test_that_get_numbers_function_work_for_number_divisible_by_5(self):
 		self.assertEqual(categorize_numbers.get_numbers(12), "No divisible number found")
+
+
+

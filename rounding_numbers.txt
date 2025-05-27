@@ -1,0 +1,14 @@
+num = 13.56449
+
+nearest_integer = round(num)
+
+nearest_tenth = round(num, 1)
+
+nearest_hundredth = round(num, 2)
+
+nearest_thousandth = round(num, 3)
+
+print("Nearest Integer:", nearest_integer)
+print("Nearest Tenth:", nearest_tenth)
+print("Nearest Hundredth:", nearest_hundredth)
+print("Nearest Thousandth:", nearest_thousandth)

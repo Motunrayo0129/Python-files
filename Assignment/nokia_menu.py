@@ -30,21 +30,27 @@ def phone_book():
     7. Send b'card
     8. Options
     9. Speed dials
-    10. Voice tags 
+    10. Voice tags
+    11. Go back to menu 
     """
     print(phonebook_menu)
     option = int(input("Press 8 to enter option: "))
     if option == 8:
         print("1. Type of view")
         print("2. Memory Status")
+        print("3. go back")
+        option2 = int(input("Press any option: "))
+        if option2 == 3:
+            phone_book()
+        option3 = int(input("Press any option: "))
+        if option3 == 11:
+            main_menu()
+  
+
     else:
         print("Invalid choice.")
+        phone_book()
 
-    while True:
-        back =  int(input("Enter (0) to go back to menu: "))
-    if back == 0:
-        print(phonebook_menu)	 
-    continue
 def messages():
     messages_menu = """ 
     1. Write messages
