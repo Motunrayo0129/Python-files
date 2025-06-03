@@ -1,0 +1,59 @@
+accounts = []
+
+
+def create_account(balance = 0.0):
+	account[balance]
+	accounts.append(account)
+	return balance
+
+def deposit_money(amount): 
+        if accounts == amount:  
+            updated_balance = accounts + amount 
+            
+            accounts = updated_balance
+            
+            return f"Your account balance is: {updated_balance}"
+
+    
+def withdrawn_money(amount, charges = 100): 
+    if accounts <= amount and amount <= 20_000:
+        withdrawal_amount =  amount
+        updated_balance = accounts - amount - charges     
+        accounts = updated_balance 
+    if withdrawal_amount % 500 == 0:
+
+  
+        return f"Transaction successful withdrawal amount: {withdrawal_amount}.  withdrawal fee: {charges}. remaining balance{updated_balance}"
+
+        return "Insufficient funds"	
+
+def negative_amount(amount): 
+    if accounts <= 0:  
+                       
+        return "Cannot perform transaction on negative input"
+
+def limited_access( amount):
+    withdraw = amount / 100 * 90 
+    if accounts > withdraw:             
+        return "You can withdraw 90% of your money" 
+
+def deposit_higher_money(amount): 
+    if accounts[client][0] == name:  
+        updated_balance = accounts[client][2] + amount 
+        accounts[client] = (accounts[client][0], accounts[client][1], updated_balance)
+            
+        return f"Deposited {amount} into {name}'s account. New balance: {updated_balance}"
+
+    if amount >= 50000:
+        return "Large deposit detected"
+            
+
+                            
+
+ 
+
+  
+
+
+
+
