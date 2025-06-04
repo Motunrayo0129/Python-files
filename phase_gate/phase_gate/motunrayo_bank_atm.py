@@ -1,56 +1,80 @@
-def deposit_amount(deposit):
-    deposit > 0:
-    balance = deposit_amount
-    return balance
-
-    return "Amount must be greater than 0"
+def deposit(balance, amount):
+    if amount > 0:
+        new_balance = amount + balance
+        print(f"Transaction successful")
+        return new_balance
+    else:
+        print("Amount must be greater than 0")
+        return balance
                 
-def withdrawn_amount(balance, withdrawal):
-wthdrawal_percentage = (balance / 100) * 90
-        if withdrawal % 500 == 0:
-            if withdrawal > 0 & withdrawal <= withdrawal_percentage:
-                charges = 100
-                updated_balance = balance - withdrawal - charges
-                print("Transaction successful.")
-                print(f"Withdrawal amount: {withdrawal}\n charges: {charges}\n remaining balance: {updated_balance}")
+def withdraw(balance, amount, transactions):
+    percentage = (balance * 100) / 90
+    charges = 100
+    if amount % 500 != 0:
+        print("Enter multiple of 500 or 1000 only: ")
+        return balance, transactions
+    if amount <= 0: 
+        print("Invalid amount. Amount shoud be greater than zero")
+        return balance, transactions
+    if amount > 20000 or amount > percentage:
+        print("withdrawal limit exceeded! maximum transaction is 20000 per transaction")
+        return balance, transactions
+    if balance >= (amount + charges):
+        balance -= (amount + charges)
+        transactions.append(f"Withdrawal amount {amount} , transaction fees: {charges} and your new balance is {balance}")     
+        print(f"Transaction successful!\n withrawal amount: {amount}\n transaction fees: {charges}\n new balance {balance}")
 
-            else: 
-                print("Invalid amount: amount should not be greater than 90% of your balance")
+    else:
+        print("Insufficient fund for this transaction.")
+        return balance, transactions    
 
-                return updated_balance
-       
-        else: 
-                print("Enter multiple of 500 or 100 only")
-  
 
-withdrawal_amount = 0
-print(""" 
-__________________________________________________
-	Welcome To Motunrayo Banking Atm
-__________________________________________________
- """)
-new_amount = int(input("Enter deposit amount: "))
-balance = 0;
-print(deposit_money(balance, new_amount))
 
-print("Do you want to withdraw: Enter 1 for yes and 2 for no:  ")
-choice = int(input("Enter your choice: "))
-if choice == 1:
-    while new_amount > 0:
-        withdraw = int(input("Enter amount: "))
-        print(withdrawn_amount(withdraw, balance))
-        ask = int (input("Do you want to make another withdrawal: press 1 to continue: "))
-        if ask == 1:
-            withdrawal_amount = True
-    
+
+
+balance = float(input("Enter your starting balance: "))
+transactions = []
+while True:
+    print(""" 
+    __________________________________________________
+
+	   Welcome To Motunrayo Banking Atm App.
+    __________________________________________________
+    		| Enter option |
+    		|______________|
+     1. Deposit
+     2. Withdraw
+     3. Account statement
+     4. exit """)
+
+    user_choice = input("Enter option: ")
+    if user_choice == "1":
+        amount = float(input("Enter deposit amount: "))
+        balance = deposit(balance, amount) 
+    elif user_choice == "2":
+        while True:
+            amount = float(input("Enter amount you want to withdrawn: "))
+            balance = withdraw(balance, amount, transactions)
+            choice = input("Do you want to withdraw more? (enter 1 to withdraw) ")   
+            if choice != "1":
+                break
+    elif user_choice == "3":
+        if transactions:
+            print("\n Account statement: ")
+            for transaction in transactions:  
+                print(transaction)
+            #if balance is None:
+                #print(f"Final balance: 0.00 ")
+            if balance is True:
+                balance = withdraw(balance, amount, transactions)
+                print(transactions.append)
         else:
-            new_amount = false
-    break
-
-        
-
-    
-
+            print("No transaction recorded.")
+    elif user_choice == "4":
+        print("Goodbye to Motunrayo banking Atm app")
+        break
+    else:
+        print("Invalid choice. please select a valid option.")
 
             
 
