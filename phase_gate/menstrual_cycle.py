@@ -11,11 +11,11 @@ def my_menstrual_cycle_calculator(cycle_length, last_period_date):
 
 	return {
         "Your next menstrual cycle": next_menstrual_period.strftime("%d-%m-%Y"),
-        "\nYour ovulation date": ovulation_date.strftime("%d-%m-%Y"),
-        "\nFertile window start": fertile_start.strftime("%d-%m-%Y"),
-        "\nFertile window end": fertile_end.strftime("%d-%m-%Y"),
-        "\nSafe days are before": fertile_start.strftime("%d-%m-%Y"),
-        "\nSafe days after": next_menstrual_period.strftime("%d-%m-%Y")
+        "Your ovulation date": ovulation_date.strftime("%d-%m-%Y"),
+        "Fertile window start": fertile_start.strftime("%d-%m-%Y"),
+        "Fertile window end": fertile_end.strftime("%d-%m-%Y"),
+        "Safe days are before": fertile_start.strftime("%d-%m-%Y"),
+        "Safe days after": next_menstrual_period.strftime("%d-%m-%Y")
     }
 
 
