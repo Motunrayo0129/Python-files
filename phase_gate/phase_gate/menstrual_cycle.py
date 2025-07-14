@@ -18,14 +18,7 @@ def my_menstrual_cycle_calculator(cycle_length, last_period_date):
         "Safe days after": next_menstrual_period.strftime("%d-%m-%Y")
     }
 
-
-
 cycle_length = int(input("What is the length of your cycle: "))
 last_period_date = input("When was your last period (date-month-year): ")
 print(my_menstrual_cycle_calculator(cycle_length, last_period_date))
-
-	
- 
-		
-	
 		

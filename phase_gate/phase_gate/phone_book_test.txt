@@ -1,0 +1,66 @@
+import unittest
+from contact_functions import (
+    contacts,
+    add_contact,
+    remove_contact,
+    find_by_first_name,
+    find_by_last_name,
+    find_by_phone,
+    edit_contact,
+    list_all_contacts
+)
+
+class TestContactFunctions(unittest.TestCase):
+    def setUp(self):
+        contacts.clear()  
+
+    def test_add_contact_successful(self):
+        result = add_contact("Afeez", "Ola", "08012345678")
+        self.assertIn("Contact added", result)
+        self.assertEqual(len(contacts), 1)
+
+    def test_add_invalid_phone(self):
+        result = add_contact("Tolu", "Bello", "08123")
+        self.assertIn("Invalid phone number", result)
+        self.assertEqual(len(contacts), 0)
+
+    def test_add_duplicate_contact(self):
+        add_contact("Afeez", "Ola", "08012345678")
+        result = add_contact("Another", "Name", "08012345678")
+        self.assertIn("already exists", result)
+        self.assertEqual(len(contacts), 1)
+
+    def test_remove_contact(self):
+        add_contact("Tolu", "Bello", "08098765432")
+        result = remove_contact("08098765432")
+        self.assertIn("removed", result)
+        self.assertEqual(len(contacts), 0)
+
+    def test_find_by_first_name(self):
+        add_contact("Tolu", "Bello", "08098765432")
+        matches = find_by_first_name("Tolu")
+        self.assertEqual(len(matches), 1)
+        self.assertEqual(matches[0]["last_name"], "Bello")
+
+    def test_find_by_last_name(self):
+        add_contact("Afeez", "Ola", "08012345678")
+        matches = find_by_last_name("Ola")
+        self.assertEqual(len(matches), 1)
+        self.assertEqual(matches[0]["first_name"], "Afeez")
+
+    def test_edit_contact(self):
+        add_contact("Sam", "Ade", "09011112222")
+        result = edit_contact("09011112222", "Samuel", "Adeyemi", "09033334444")
+        self.assertIn("updated", result)
+        updated = find_by_phone("09033334444")
+        self.assertIsNotNone(updated)
+        self.assertEqual(updated["first_name"], "Samuel")
+
+    def test_list_all_contacts_empty(self):
+        result = list_all_contacts()
+        self.assertIn("No contacts", result)
+
+    def test_list_all_contacts_format(self):
+        add_contact("Jane", "Doe", "07000000000")
+        output = list_all_contacts()
+        self.assertIn("Jane Doe - 07000000000", output)

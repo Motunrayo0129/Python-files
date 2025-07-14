@@ -34,7 +34,7 @@ def generate_receipt(items, subtotal, discount, vat, total, cashier_name, custom
 
     for item in items:
         product_name, quantity, price, item_total = item
-        print(f"{product_name:<15} {quantity:<10} {price:<10.2f} {item_total:<10.2f}")  # Indented
+        print(f"{product_name:<15} {quantity:<10} {price:<10.2f} {item_total:<10.2f}") 
 
     print("-" * 74)
     print(f"Subtotal: {subtotal:.2f}")
@@ -44,7 +44,6 @@ def generate_receipt(items, subtotal, discount, vat, total, cashier_name, custom
     print(f"Total Amount: {total:.2f}")
 
 def process_payment(total, amount_paid):
-    """Handles payment validation and allows retrying if the amount is insufficient."""
     while amount_paid < total:
         print(f"Insufficient fund. The total amount is {total:.2f}, but you entered {amount_paid:.2f}.")
         amount_paid = float(input("Enter a valid amount: "))
