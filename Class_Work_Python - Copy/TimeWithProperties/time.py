@@ -5,39 +5,37 @@ class TimeWithProperties:
         self.second = second
 
     @property
-    def second(self):
-        return self._second
+    def hour(self):
+        return self._hour
 
-    @second.setter
-    def seconds(self, value):
-        if value < 0 and value > 59:
-            raise ValueError('seconds must be between 0 and 59')
-        self._seconds, = value
+    @hour.setter
+    def hour(self, value):
+        if value < 0 or value > 23:
+            raise ValueError("hour must be between 0 and 23")
+        self._hour = value
 
     @property
     def minute(self):
         return self._minute
 
     @minute.setter
-    def minutes(self, value):
-        if value < 0 and value > 59:
-            raise ValueError('minutes must be between 0 and 59')
+    def minute(self, value):
+        if value < 0 or value > 59:
+            raise ValueError("minute must be between 0 and 59")
         self._minute = value
 
     @property
-    def hour(self):
-        return self._hour
+    def second(self):
+        return self.second
 
-
-    @hour.setter
-    def hours(self, value):
-        if 0 > value > 23:
-            raise ValueError('hours must be between 0 and 23')
-        self._hour = value
+    @second.setter
+    def second(self, value):
+        if value < 0 or value > 59:
+            raise ValueError("second must be between 0 and 59")
+        self._second = value
 
     def __str__(self):
-        return f'Time({self.hour}:{self.minute:02}:{self.second:02})'
-
+        return f"{self.hour}:{self.minute}:{self.second}"
 
 time1 = TimeWithProperties()
 time1.hour = 12
